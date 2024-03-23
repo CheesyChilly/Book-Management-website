@@ -1,2 +1,3 @@
 # Book-store-website
- A basic book store website for viewing and searching books
+
+Using MERN stack to make a basic book store website for viewing and searching books
