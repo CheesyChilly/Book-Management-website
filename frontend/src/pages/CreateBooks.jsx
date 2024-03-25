@@ -17,16 +17,14 @@ const CreateBooks = () => {
       publisherYear,
     };
     setLoading(true);
-    axios
-      .post(`https://book-management-website.vercel.app/books`, data)
-      .then(() => {
+    axios.post(`http://localhost:5555/books`, data).then(() => {
+      setLoading(false);
+      navigate("/").catch((error) => {
         setLoading(false);
-        navigate("/").catch((error) => {
-          setLoading(false);
-          alert("An error has occured!!! Please check console.");
-          console.log(error);
-        });
+        alert("An error has occured!!! Please check console.");
+        console.log(error);
       });
+    });
   };
 
   return (
