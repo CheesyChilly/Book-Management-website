@@ -11,16 +11,16 @@ app.use(express.json());
 
 // Middleware to handle CORS policy
 // 1. Allow All Origins with Default of CORS(*)
-app.use(cors());
+// app.use(cors());
 
 // 2. Allow Custom Origins
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     allowedHeaders: ["Content-Type"],
-//   })
-// );
+app.use(
+  cors({
+    origin: "https://book-management-website.vercel.app/",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 // sending a basic response to the webpage
 app.get("/", (request, response) => {
