@@ -14,7 +14,7 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`https://book-management-website.vercel.app/books/${id}`)
       .then((response) => {
         setAuthor(response.data.author);
         setPublisherYear(response.data.publisherYear);
@@ -34,14 +34,16 @@ const EditBook = () => {
       publisherYear,
     };
     setLoading(true);
-    axios.put(`http://localhost:5555/books/${id}`, data).then(() => {
-      setLoading(false);
-      navigate("/").catch((error) => {
+    axios
+      .put(`https://book-management-website.vercel.app/${id}`, data)
+      .then(() => {
         setLoading(false);
-        alert("An error has occured!!! Please check console.");
-        console.log(error);
+        navigate("/").catch((error) => {
+          setLoading(false);
+          alert("An error has occured!!! Please check console.");
+          console.log(error);
+        });
       });
-    });
   };
 
   return (
