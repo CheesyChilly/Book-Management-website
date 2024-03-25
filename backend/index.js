@@ -24,7 +24,7 @@ app.use(
 );
 
 // sending a basic response to the webpage
-app.get("/", (request, response) => {
+app.get("https://book-management-website.vercel.app/", (request, response) => {
   console.log(request);
   return response.status(200).send("Welcome to my MERN stack project.");
 });
