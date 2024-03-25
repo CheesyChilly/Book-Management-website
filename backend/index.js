@@ -18,6 +18,7 @@ app.use(
   cors({
     origin: "https://book-website-orpin.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials:true,
     allowedHeaders: ["Content-Type"],
   })
 );
