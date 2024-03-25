@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import BackButton from "../components/BackButton";
-import spinner from "../components/spinner";
+import Spinner from "../components/Spinner";
 
 const ShowBook = () => {
   const [books, setBooks] = useState([]);
@@ -20,13 +20,13 @@ const ShowBook = () => {
         console.log(error);
         setLoading(false);
       });
-  }, []);
+  });
   return (
     <div className="p-4">
       <BackButton />
       <h1 className="text-3xl my-4">Show Book</h1>
       {loading ? (
-        <spinner />
+        <Spinner />
       ) : (
         <div className="flex flex-col border-2 border-sky-400 rounded-xl">
           <div className="my-4">
