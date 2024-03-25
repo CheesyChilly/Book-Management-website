@@ -16,7 +16,7 @@ app.use(express.json());
 // 2. Allow Custom Origins
 app.use(
   cors({
-    origin: "https://book-management-website.vercel.app/",
+    origin: "https://book-website-orpin.vercel.app/",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
