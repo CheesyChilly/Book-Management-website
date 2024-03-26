@@ -24,10 +24,13 @@ app.use(
 );
 
 // sending a basic response to the webpage
-app.get("https://book-management-website.vercel.app/", (request, response) => {
-  console.log(request);
-  return response.status(200).send("Welcome to my MERN stack project.");
-});
+app.get(
+  "https://book-management-website.onrender.com/",
+  (request, response) => {
+    console.log(request);
+    return response.status(200).send("Welcome to my MERN stack project.");
+  }
+);
 
 // Middleware to use books route from our routes file
 app.use("/books", booksRoute);
