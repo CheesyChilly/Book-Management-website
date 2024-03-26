@@ -24,10 +24,6 @@ app.use(express.json());
 // );
 
 
-const express = require("express");
-const cors = require("cors");
-
-
 // Allow CORS requests from specific origin
 app.use(
   cors({
