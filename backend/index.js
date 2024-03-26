@@ -16,12 +16,12 @@ app.use(express.json());
 // 2. Allow Custom Origins
 app.use(
   cors({
-    origin: "https://book-website-orpin.vercel.app",
+    origin: "https://managingbooks.netlify.app/",
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials:true,
+    credentials: true,
     allowedHeaders: ["Content-Type"],
   })
-)
+);
 
 // sending a basic response to the webpage
 app.get("https://book-management-website.vercel.app/", (request, response) => {
