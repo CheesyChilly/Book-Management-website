@@ -13,17 +13,6 @@ app.use(express.json());
 // 1. Allow All Origins with Default of CORS(*)
 // app.use(cors());
 
-// 2. Allow Custom Origins
-// app.use(
-//   cors({
-//     origin: "https://managingbooks.netlify.app/",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true,
-//     allowedHeaders: ["Content-Type"],
-//   })
-// );
-
-
 // Allow CORS requests from specific origin
 app.use(
   cors({
@@ -35,13 +24,10 @@ app.use(
 );
 
 // sending a basic response to the webpage
-app.get(
-  "/",
-  (request, response) => {
-    console.log(request);
-    return response.status(200).send("Welcome to my MERN stack project.");
-  }
-);
+app.get("/", (request, response) => {
+  console.log(request);
+  return response.status(200).send("Welcome to my MERN stack project.");
+});
 
 // Middleware to use books route from our routes file
 app.use("/books", booksRoute);
