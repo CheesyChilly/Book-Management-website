@@ -8,7 +8,7 @@ import { useSnackbar } from "notistack";
 const EditBook = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [publishYear, setPublishYear] = useState("");
+  const [publisherYear, setPublisherYear] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -17,11 +17,11 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://book-management-website-nn3r.onrender.com/books/${id}`)
+      .get(`http://localhost:5555/books/${id}`)
       .then((response) => {
-        setAuthor(response.data.author);
-        setPublishYear(response.data.publishYear);
-        setTitle(response.data.title);
+        setAuthor(response.data.author || "");
+        setPublisherYear(response.data.publisherYear || "");
+        setTitle(response.data.title || "");
         setLoading(false);
       })
       .catch((error) => {
@@ -35,14 +35,11 @@ const EditBook = () => {
     const data = {
       title,
       author,
-      publishYear,
+      publisherYear,
     };
     setLoading(true);
     axios
-      .put(
-        `https://book-management-website-nn3r.onrender.com/books/${id}`,
-        data
-      )
+      .put(`http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book Edited successfully", { variant: "success" });
@@ -84,8 +81,8 @@ const EditBook = () => {
           <label className="text-xl mr-4 text-gray-500">Publish Year</label>
           <input
             type="number"
-            value={publishYear}
-            onChange={(e) => setPublishYear(e.target.value)}
+            value={publisherYear}
+            onChange={(e) => setPublisherYear(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2  w-full "
           />
         </div>

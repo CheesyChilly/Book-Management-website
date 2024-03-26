@@ -8,7 +8,7 @@ import { useSnackbar } from "notistack";
 const CreateBooks = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [publishYear, setPublishYear] = useState("");
+  const [publisherYear, setPublisherYear] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
@@ -17,11 +17,11 @@ const CreateBooks = () => {
     const data = {
       title,
       author,
-      publishYear,
+      publisherYear,
     };
     setLoading(true);
     axios
-      .post("https://book-management-website-nn3r.onrender.com/books", data)
+      .post("http://localhost:5555/books", data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book Created successfully", { variant: "success" });
@@ -63,8 +63,8 @@ const CreateBooks = () => {
           <label className="text-xl mr-4 text-gray-500">Publish Year</label>
           <input
             type="number"
-            value={publishYear}
-            onChange={(e) => setPublishYear(e.target.value)}
+            value={publisherYear}
+            onChange={(e) => setPublisherYear(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2  w-full "
           />
         </div>
