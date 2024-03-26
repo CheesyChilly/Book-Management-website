@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
@@ -21,16 +21,16 @@ const CreateBooks = () => {
     };
     setLoading(true);
     axios
-      .post('http://localhost:5555/books', data)
+      .post("https://book-management-website-nn3r.onrender.com/books", data)
       .then(() => {
         setLoading(false);
-        enqueueSnackbar('Book Created successfully', { variant: 'success' });
-        navigate('/');
+        enqueueSnackbar("Book Created successfully", { variant: "success" });
+        navigate("/");
       })
       .catch((error) => {
         setLoading(false);
         // alert('An error happened. Please Chack console');
-        enqueueSnackbar('Error', { variant: 'error' });
+        enqueueSnackbar("Error", { variant: "error" });
         console.log(error);
       });
   };

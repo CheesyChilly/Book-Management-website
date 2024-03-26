@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
@@ -16,18 +16,20 @@ const EditBook = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5555/books/${id}`)
-    .then((response) => {
+    axios
+      .get(`https://book-management-website-nn3r.onrender.com/books/${id}`)
+      .then((response) => {
         setAuthor(response.data.author);
-        setPublishYear(response.data.publishYear)
-        setTitle(response.data.title)
+        setPublishYear(response.data.publishYear);
+        setTitle(response.data.title);
         setLoading(false);
-      }).catch((error) => {
+      })
+      .catch((error) => {
         setLoading(false);
-        alert('An error happened. Please Chack console');
+        alert("An error happened. Please Chack console");
         console.log(error);
       });
-  }, [])
+  }, [id])
   
   const handleEditBook = () => {
     const data = {
