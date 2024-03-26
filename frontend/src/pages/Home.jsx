@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://book-management-website.onrender.com/books`)
+      .get(`https://book-management-website-nn3r.onrender.com/books`)
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
