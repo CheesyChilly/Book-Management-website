@@ -26,7 +26,7 @@ const EditBook = () => {
         alert("An error has occured!!! Please check console");
         console.log(error);
       });
-  },[id]);
+  }, [id]);
   const handleEditBook = () => {
     const data = {
       title,
@@ -34,14 +34,17 @@ const EditBook = () => {
       publisherYear,
     };
     setLoading(true);
-    axios.put(`https://book-management-website.onrender.com/books/${id}`, data).then(() => {
-      setLoading(false);
-      navigate("/").catch((error) => {
+    axios
+      .put(`https://book-management-website.onrender.com/books/${id}`, data)
+      .then(() => {
+        setLoading(false);
+        navigate("/");
+      })
+      .catch((error) => {
         setLoading(false);
         alert("An error has occured!!! Please check console.");
         console.log(error);
       });
-    });
   };
 
   return (

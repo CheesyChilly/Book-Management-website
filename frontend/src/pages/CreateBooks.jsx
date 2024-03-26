@@ -17,14 +17,17 @@ const CreateBooks = () => {
       publisherYear,
     };
     setLoading(true);
-    axios.post(`https://book-management-website.onrender.com/books`, data).then(() => {
-      setLoading(false);
-      navigate("/").catch((error) => {
+    axios
+      .post(`https://book-management-website.onrender.com/books`, data)
+      .then(() => {
+        setLoading(false);
+        navigate("/");
+      })
+      .catch((error) => {
         setLoading(false);
         alert("An error has occured!!! Please check console.");
         console.log(error);
       });
-    });
   };
 
   return (

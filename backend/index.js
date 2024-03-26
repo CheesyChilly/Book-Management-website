@@ -11,17 +11,17 @@ app.use(express.json());
 
 // Middleware to handle CORS policy
 // 1. Allow All Origins with Default of CORS(*)
-app.use(cors());
+// app.use(cors());
 
 // 2. Allow Custom Origins
-// app.use(
-//   cors({
-//     origin: "https://book-website-orpin.vercel.app",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials:true,
-//     allowedHeaders: ["Content-Type"],
-//   })
-// );
+app.use(
+  cors({
+    origin: "https://book-website-orpin.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials:true,
+    allowedHeaders: ["Content-Type"],
+  })
+)
 
 // sending a basic response to the webpage
 app.get("https://book-management-website.vercel.app/", (request, response) => {
