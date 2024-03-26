@@ -14,12 +14,27 @@ app.use(express.json());
 // app.use(cors());
 
 // 2. Allow Custom Origins
+// app.use(
+//   cors({
+//     origin: "https://managingbooks.netlify.app/",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//     allowedHeaders: ["Content-Type"],
+//   })
+// );
+
+
+const express = require("express");
+const cors = require("cors");
+
+
+// Allow CORS requests from specific origin
 app.use(
   cors({
-    origin: "https://managingbooks.netlify.app/",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-    allowedHeaders: ["Content-Type"],
+    origin: "https://managingbooks.netlify.app", // Replace with your allowed origin
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods (optional)
+    credentials: true, // Allow sending cookies (optional)
+    allowedHeaders: ["Content-Type"], // Allowed request headers (optional)
   })
 );
 
