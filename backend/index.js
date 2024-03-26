@@ -31,7 +31,7 @@ app.use(cors());
 
 app.get("/", (request, response) => {
   console.log(request);
-  return response.status(200).send("Welcome to my MERN stack project.");
+  return response.status(200).send("Database connected");
 });
 
 // Middleware to use books route from our routes file
