@@ -21,10 +21,15 @@ app.use(cors());
 //     credentials:true,
 //     allowedHeaders: ["Content-Type"],
 //   })
-// );
+// );http://localhost:5550/
 
 // sending a basic response to the webpage
-app.get("https://book-management-website.vercel.app/", (request, response) => {
+// app.get("https://book-management-website.vercel.app/", (request, response) => {
+//   console.log(request);
+//   return response.status(200).send("Welcome to my MERN stack project.");
+// });
+
+app.get("/", (request, response) => {
   console.log(request);
   return response.status(200).send("Welcome to my MERN stack project.");
 });
@@ -35,7 +40,7 @@ app.use("/books", booksRoute);
 mongoose
   .connect(MONGODB_URL)
   .then(() => {
-    console.log("App connect to database");
+    console.log("App connected to database");
     app.listen(PORT, () => {
       console.log(`App is listening to port: ${PORT}`);
     });

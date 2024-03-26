@@ -17,7 +17,7 @@ const CreateBooks = () => {
       publisherYear,
     };
     setLoading(true);
-    axios.post(`https://book-management-website.onrender.com/books`, data).then(() => {
+    axios.post(`http://localhost:5555/books`, data).then(() => {
       setLoading(false);
       navigate("/").catch((error) => {
         setLoading(false);
